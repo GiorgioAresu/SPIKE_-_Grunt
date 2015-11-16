@@ -1,0 +1,23 @@
+.body {
+    background-color: #fafafa;
+    margin: 0;
+}
+
+.header {
+    background-color: teal;
+    padding: 2px 10px;
+    
+    @at-root #{&}__title {
+        font-family: "RobotoDraft","Roboto",sans-serif;
+        font-variant: small-caps;
+        color: white;
+    }
+}
+
+.content {
+    margin: 8px;
+    
+    @at-root #{&}__text {
+        opacity: 97%;
+    }
+}
