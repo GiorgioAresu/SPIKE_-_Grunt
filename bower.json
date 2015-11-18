@@ -1,0 +1,21 @@
+{
+  "name": "grunt_spike",
+  "version": "1.0.0",
+  "description": "Grunt spike using SASS and BEM",
+  "main": "index.js",
+  "authors": [
+    "Giorgio Aresu"
+  ],
+  "homepage": "https://github.com/GiorgioAresu/SPIKE_-_Grunt",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
+}

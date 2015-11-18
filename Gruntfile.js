@@ -5,7 +5,12 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         project: {
             src: ['src'],
-            dist: ['dist']
+            dist: ['dist'],
+            bower_basedir: ['bower_components'],
+            bower: {
+                sass: '<%= project.bower_basedir %>/bootstrap-sass/assets',
+                jquery: '<%= project.bower_basedir %>/jquery'
+            }
         },
         watch: {
             options: {
@@ -43,6 +48,26 @@ module.exports = function(grunt) {
             }
         },
         copy: {
+            bootstrap: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= project.bower.sass %>/javascripts/bootstrap.min.js'],
+                        dest: '<%= project.src %>/js/'
+                    }
+                ]
+            },
+            jquery: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= project.bower.jquery %>/dist/jquery.min.js'],
+                        dest: '<%= project.src %>/js/'
+                    }
+                ]
+            },
             dist: {
                 files: [
                     {
@@ -50,6 +75,13 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: ['<%= project.src %>/*.html'],
                         dest: '<%= project.dist %>/',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= project.src %>/js/*.min.js'],
+                        dest: '<%= project.dist %>/js/',
                         filter: 'isFile'
                     }
                 ]
